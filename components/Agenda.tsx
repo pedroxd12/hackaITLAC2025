@@ -15,15 +15,18 @@ const Agenda: React.FC = () => (
   <section id="agenda" className="py-20 px-4 bg-[#0a0a0a]">
     <div className="container mx-auto">
       <h2 className="text-4xl font-bold text-center mb-12 text-cyan-400">Agenda del Evento</h2>
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto space-y-6">
         {agendaData.map((item, index) => (
-          <div key={index} className="flex items-center mb-6">
-            <div className="bg-cyan-500 text-black text-center rounded-lg p-3 w-40">
+          <div 
+            key={index} 
+            className="flex flex-col sm:flex-row sm:items-center bg-gray-900 rounded-lg p-4 sm:p-3 shadow-lg"
+          >
+            <div className="bg-cyan-500 text-black text-center rounded-lg p-3 sm:w-40 w-full mb-3 sm:mb-0">
               <p className="font-bold">{item.date}</p>
               <p>{item.time}</p>
             </div>
-            <div className="border-l-2 border-cyan-500 h-10 ml-6 mr-6"></div>
-            <p className="text-lg text-white">{item.activity}</p>
+            <div className="hidden sm:block border-l-2 border-cyan-500 h-10 mx-6"></div>
+            <p className="text-lg text-white text-center sm:text-left">{item.activity}</p>
           </div>
         ))}
       </div>

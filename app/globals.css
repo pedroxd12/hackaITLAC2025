@@ -1,12 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #00e5ff;
+  --secondary: #1d1d1d;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #0a0a0a;
-  color: #ededed;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
 
 @layer utilities {
@@ -31,7 +40,7 @@ body {
   animation: fadeIn 1s ease-out forwards;
 }
 
-@keyframes background-pan {
+@keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
   }
@@ -44,21 +53,84 @@ body {
 }
 
 .animated-gradient {
-  background: linear-gradient(90deg, #0f0c29, #302b63, #24243e, #0f0c29);
-  background-size: 200% 200%;
-  animation: background-pan 10s ease infinite;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1e3c72, #2a5298);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* --- Nueva animación para el texto del Hero --- */
+@keyframes animated-text-gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-text-gradient {
+  background: linear-gradient(
+    -45deg,
+    #00e5ff,
+    #12a8ff,
+    #fcff68,
+    #00e5ff
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animated-text-gradient-flow 5s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.3), 0 0 20px rgba(193, 104, 255, 0.3);
+}
+
+
+.btn-hover-effect {
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-hover-effect:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
 }
 
 .card-hover-effect {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  will-change: transform;
 }
 
 .card-hover-effect:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 150, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary), #00b8d4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00b8d4, #008c9e);
+}
+
+/* Clases para títulos responsivos */
+.section-title {
+    @apply text-4xl font-bold text-center mb-12 text-cyan-400 md:text-5xl md:mb-16;
+}
+
+.section-padding {
+    @apply py-20 px-4 md:py-24;
 }

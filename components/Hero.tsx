@@ -1,8 +1,23 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Hero: React.FC = () => (
-  <section className="min-h-screen flex items-center justify-center animated-gradient text-white text-center p-4 pt-20">
-    <div className="fade-in max-w-4xl mx-auto">
+  <section className="relative min-h-screen flex items-center justify-center text-white text-center p-4 pt-20 overflow-hidden">
+    {/* Capa 1: Imagen de Fondo */}
+    <Image
+        src="/itlac.png" // ¡IMPORTANTE! Cambia esto por la ruta de tu imagen de fondo
+        layout="fill"
+        objectFit="cover"
+        alt="Fondo del HackaITLAC"
+        className="z-0"
+        priority // Carga la imagen más rápido
+    />
+
+    {/* Capa 2: Overlay con Gradiente Animado */}
+    <div className="absolute inset-0 animated-gradient opacity-80 z-10"></div>
+
+    {/* Capa 3: Contenido */}
+    <div className="relative z-20 fade-in max-w-4xl mx-auto">
       <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-4 tracking-tighter">
         Hacka<span className="animated-text-gradient">ITLAC</span> 2025
       </h1>

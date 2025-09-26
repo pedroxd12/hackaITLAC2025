@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMenuOpen
-          ? "bg-black bg-opacity-80 backdrop-blur-lg shadow-lg"
+          ? "bg-white shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -35,8 +35,8 @@ const Header: React.FC = () => {
           <Image
             src="/tecnm-logo.png"
             alt="Logo TecNM"
-            width={40}
-            height={32}
+            width={50}
+            height={50}
             className="h-auto w-auto max-h-8"
           />
           <Image
@@ -56,7 +56,9 @@ const Header: React.FC = () => {
         </div>
 
         {/* Menú Desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-white text-sm">
+        <nav className={`hidden md:flex items-center gap-6 text-sm ${
+          isScrolled ? 'text-black' : 'text-white'
+        }`}>
           <a
             href="#about"
             className="hover:text-cyan-400 transition-colors duration-300"
@@ -99,7 +101,7 @@ const Header: React.FC = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="relative z-[60] text-white focus:outline-none"
+            className={`relative z-[60] focus:outline-none ${isScrolled ? 'text-black' : 'text-white'}`}
           >
             <span className="sr-only">Abrir menú</span>
             <svg

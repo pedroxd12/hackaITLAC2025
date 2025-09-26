@@ -24,7 +24,7 @@ const tracksData = [
 const Tracks: React.FC = () => (
   <section id="tracks" className="section-padding bg-[#111]">
     <div className="container mx-auto">
-      <h2 className="section-title">Los Desafíos</h2>
+      <h2 className="section-title">Track's</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {tracksData.map((track) => (
           <div key={track.title} className="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 card-hover-effect text-center flex flex-col items-center h-full">

@@ -8,8 +8,8 @@ const Rules: React.FC = () => (
         <li><b>Equipos:</b> De 3 a 5 estudiantes. Pueden registrar un asesor académico.</li>
         <li><b>Originalidad:</b> Todo el código debe ser creado durante las 12 horas del evento. Se permite el uso de librerías, APIs y herramientas de IA.</li>
         <li><b>Propiedad Intelectual:</b> Las soluciones son propiedad de los equipos. Otorgan una licencia no exclusiva al ITLAC para fines de difusión.</li>
-        <li><b>Código de Conducta:</b> Se espera un ambiente de respeto y colaboración. Cero tolerancia al acoso o comportamiento antideportivo.</li>
-        <li><b>Herramientas:</b> Cada participante debe traer su propia laptop. Nosotros proveemos el espacio, internet y conexiones eléctricas.</li>
+        <li><b>Código de Conducta:</b> Se debe mantener un ambiente de respeto y colaboración. Cero tolerancia al acoso o comportamiento antideportivo.</li>
+        <li><b>Herramientas:</b> Cada equipo debe disponer de sus propios equipos de cómputo. Nosotros proveemos el espacio, internet y conexiones eléctricas.</li>
         <li><b>Inscripción:</b> El registro es gratuito a través de nuestro formulario oficial. ¡El cupo es limitado!</li>
       </ul>
       <div className="text-center mt-16">

@@ -10,7 +10,7 @@ const Location: React.FC = () => (
             </p>
             <div className="max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
                 <Image
-                    src="/location-itlac.jpg"
+                    src="/location-itlac.png"
                     alt="Instalaciones del ITLAC"
                     width={1200}
                     height={675}

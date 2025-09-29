@@ -57,12 +57,69 @@ const tracksData = [
       ]
     }
   },
-  {
-    title: "Reconocimiento de números de corredores (BIB)",
-    company: "ITLAC",
-    description: "Implementa un sistema que registre el número de un corredor para el registro de los tiempos y premiación por categorias.",
-    icon: "🏃‍♂️",
-  },
+ {
+  title: "Reconocimiento de números de corredores (BIB)",
+  company: "ITLAC",
+  description: "Sistema integral para reconocimiento automático de dorsales (BIB), cronometraje en tiempo real y generación de resultados y premiaciones por categorías.",
+  icon: "🏃‍♂️",
+  details: {
+    objetivo: "Plantea un sistema integral para reconocer automáticamente los números de corredor (BIB) en una carrera atlética, registrar tiempos de paso y meta en tiempo real, y calcular la premiación por categorías. La solución combina visión por computadora (detección/lectura de BIB), cronometraje electrónico y un backend que consolida resultados, valida penalizaciones y emite reportes oficiales.",
+    especificaciones: [
+      "Captura: cámaras en arco de salida/meta (60–120 fps recomendado para foto-finish) y puntos intermedios.",
+      "Procesamiento: servicio de visión por computadora (OpenCV + detector de BIB; OCR con Tesseract/CRNN).",
+      "Backend: API REST (Node.js/Express o PHP/Laravel) + base de datos MySQL/MariaDB.",
+      "Tiempo real: WebSockets (Socket.IO) para actualizar tablero en vivo.",
+      "Panel web: React/Vue/Bootstrap con dashboards, resultados y control de jueces.",
+      "Opcional: App móvil para jueces (validaciones manuales, correcciones, marcar DNF/DQ).",
+      "Sincronización temporal: NTP en cámaras y servidores para consistencia de timestamps."
+    ],
+    solucion: "Registro y Control de Corredores y Reconocimiento de BIB mediante visión por computadora y OCR: alta masiva/individual de corredores, detección de región del BIB (YOLO/SSD o heurísticas), OCR sobre la región (Tesseract/CRNN), desambiguación contra lista válida de dorsales y ventana anti-duplicado para evitar lecturas repetidas.",
+    motivacion: "El desarrollo de este proyecto responde a la necesidad de contar con un sistema moderno, preciso y automatizado de cronometraje en carreras atléticas. Los métodos tradicionales con cronómetros manuales o chips RFID suelen implicar altos costos, complejidad logística o errores humanos. Con visión por computadora y reconocimiento de patrones se reduce costo y error, se agiliza la entrega de resultados y se aumenta la transparencia del evento. Además el proyecto es escalable a otros eventos masivos, fomentando la innovación tecnológica aplicada al deporte.",
+    entregables: [
+      "Fase 1: Idea y Justificación — Requerimientos, diseño de arquitectura y modelo de datos.",
+      "Fase 2: Prototipo inicial — Módulo de detección de dorsales (pruebas en imágenes estáticas) y base de datos de corredores.",
+      "Fase 3: Cronometraje y Control — Integración de cámaras en tiempo real, registro de tiempos (gun y chip), sincronización NTP y API para almacenar detecciones.",
+      "Fase 4: Clasificación y Resultados — Reglas de categorías, ranking por rama y edad, generación automática de podios y reportes preliminares.",
+      "Fase 5: Entregable final / Demo — Tablero en vivo, generación de constancias (PDF/Excel con QR) y simulacro en tiempo real."
+    ],
+    recursos: [
+      "Cámaras de alta resolución (1080p–4K) con capacidad de 60–120 fps para arcos y puntos de control.",
+      "Servidor local o en la nube (GPU opcional) para procesamiento de imágenes.",
+      "Conectividad estable (LAN/Wi-Fi/4G/5G) para transmisión en tiempo real.",
+      "Software: Python (OpenCV, TensorFlow/PyTorch), Tesseract/CRNN, Node.js/Express o PHP/Laravel, MySQL/MariaDB.",
+      "Frontend: React o Vue con Bootstrap para dashboards; Socket.IO para tiempo real.",
+      "Equipo humano: desarrolladores en visión por computadora y backend, técnicos de instalación de cámaras, jueces y voluntarios para validación.",
+      "Herramientas adicionales: generador de PDF/Excel, librerías para QR, manuales de operación y datasets de dorsales de prueba."
+    ],
+    evaluacion: [
+      "Creatividad e innovación: uso de visión por computadora y OCR frente a métodos tradicionales.",
+      "Funcionalidad del prototipo: precisión en reconocimiento de dorsales, registro correcto de tiempos (salida, parciales, meta) y generación de reportes.",
+      "Enfoque centrado en usuarios: facilidad de uso para organizadores, jueces y corredores; claridad del tablero en vivo.",
+      "Factibilidad técnica y económica: capacidad de implementación y escalabilidad según número de corredores y puntos de control.",
+      "Impacto y valor agregado: transparencia en resultados, reducción de costos y posibilidad de réplica en otros eventos.",
+      "Calidad de la presentación: demostración en simulacro, evidencia en tiempo real y documentación clara."
+    ],
+    tipoDeSolucion: [
+      "Registro de corredores: alta por lote (CSV) o individual (nombre, sexo, fecha de nacimiento, categoría, distancia, número BIB, equipo).",
+      "Validaciones: identidad, asignación de kit, estatus (pagado, entregado, DNS, DNF, DQ).",
+      "Reconocimiento BIB: detección (YOLO/SSD o heurísticas), OCR sobre región, verificación por Levenshtein/regex y anti-duplicado temporal.",
+      "Cronometraje y puntos de control: registro de timestamps por BIB, gun time vs chip time, sincronización NTP.",
+      "Clasificación y premiación: cálculo de tiempos netos, ranking por categoría y rama; empates resueltos por fotofinish.",
+      "Tablero y reportes: vista de pasos por puntos de control, alertas, exportación a PDF/Excel/CSV y publicación vía API."
+    ],
+    descripcionTrack: "El proyecto avanza por fases con entregables claros: diseño y justificación, prototipo de detección, integración de cronometraje en tiempo real, reglas de clasificación y tablero en vivo, finalizando con demo funcional y generación de constancias verificables por QR.",
+    mentoresJurado: "Se sugiere conformar un panel mixto de mentores y jurado con experiencia en visión por computadora, desarrollo backend, cronometraje deportivo y organización de eventos atléticos.",
+    terminosYCondiciones: {
+      duracionReto: "Duración del reto: 12 horas continuas desde el banderazo oficial hasta la hora de cierre establecida por el comité.",
+      entrega: "Cada equipo entregará un prototipo o demo que muestre reconocimiento de dorsales, registro de tiempos y clasificación básica. Se aceptan repositorios (GitHub/ZIP), demo en video y un resumen de máximo 2 páginas.",
+      validacion: "El jurado validará reconocimiento de BIB, registro de tiempos y generación de resultados preliminares. Se dará prioridad a evidencias en tiempo real (capturas, simulación o demo).",
+      propiedadIntelectual: "Los derechos de autor corresponden a los equipos; la organización podrá difundir los proyectos con fines académicos mencionando a los autores.",
+      compromisoEtico: "Se exige originalidad y uso legal de librerías/datasets; está prohibido el plagio sin mejoras significativas.",
+      usoMarca: "El logotipo del evento e institución podrá usarse únicamente en el marco del evento; se autoriza registro audiovisual para memoria institucional."
+    }
+  }
+}
+
 ];
 
 const Tracks: React.FC = () => {
@@ -91,7 +148,7 @@ const Tracks: React.FC = () => {
               <div 
                 key={track.title} 
                 className="bg-[#1a1a1a] p-8 rounded-xl border border-gray-800 card-hover-effect text-center flex flex-col items-center h-full cursor-pointer"
-                onClick={() => handleOpenModal(track)} // Agregamos el evento onClick
+                onClick={() => handleOpenModal(track)}
               >
                 <div className="text-5xl mb-5">{track.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{track.title}</h3>
